@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
 	"time"
 
@@ -45,54 +43,7 @@ func main() {
 		for i := 0; i < len(users); i++ {
 			usersArr[i] = users[i]
 		}
-
-		// userJson, err := json.Marshal(usersArr)
-		// input := []byte(userJson)
-		// if err != nil {
-		// 	c.JSON(400, gin.H{"error-name": "userArray is empty (nil)", "error-message": err.Error()})
-		// } else {
-		// 	buf := &bytes.Buffer{}
-		// 	if err := json.Indent(buf, input, "", "\t"); err != nil {
-		// 		c.JSON(400, gin.H{"error": err.Error()})
-		// 	}
-		// 	// userJson2, err := json.MarshalIndent(userJson, "", "\t")
-		// 	// if err != nil {
-		// 	// 	c.JSON(200, string(userJson2))
-		// 	// 	fmt.Println(string(userJson2))
-
-		// 	// } else {
-		// 	// 	c.JSON(200, string(userJson2))
-		// 	// 	fmt.Println(string(userJson2))
-		// 	// }
-
-		// 	c.JSON(200, buf.String())
-		// 	fmt.Println(buf)
-		// 	fmt.Println(buf.String())
-		// }
-
-		fmt.Println(usersArr)
-
-		userJson, err := json.Marshal(usersArr)
-
-		if err != nil {
-			c.JSON(400, gin.H{"error": err.Error()})
-		} else {
-			buf := &bytes.Buffer{}
-			if err := json.Indent(buf, userJson, "", "\t"); err != nil {
-				c.JSON(400, gin.H{"error": err.Error()})
-			} else {
-				c.JSON(200, buf.String())
-			}
-		}
-
-		// userJson2, err := json.MarshalIndent(usersArr, "", "\t")
-
-		// if err != nil {
-		// 	c.JSON(400, gin.H{"error": err.Error()})
-		// } else {
-		// 	c.JSON(200, string(userJson2))
-		// }
-
+		c.JSON(200, users)
 	})
 
 	r.POST("/registration", func(c *gin.Context) {
