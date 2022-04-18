@@ -38,18 +38,6 @@ func main() {
 		})
 	})
 
-	r.GET("/data", func(c *gin.Context) {
-		a := make([]string, 2)
-		a[0] = "John"
-		a[1] = "Sam"
-		j, err := json.Marshal(a)
-		if err != nil {
-			fmt.Printf("Error: %s", err.Error())
-		} else {
-			fmt.Println(string(j))
-		}
-	})
-
 	r.GET("/getusers", func(c *gin.Context) {
 
 		usersArr := make([]User, len(users))
@@ -124,13 +112,7 @@ func main() {
 		})
 
 		var postUser User = newUser(postUsername, postFirstname, postLastname, postEmail, token)
-		// fmt.Println("*-----------------------------------")
-		// fmt.Println(postUser)
-		// fmt.Println("*-----------------------------------")
 		users = append(users, postUser)
-		// fmt.Println("**----------------------------------")
-		// fmt.Println(users)
-		// fmt.Println("**----------------------------------")
 
 	})
 
