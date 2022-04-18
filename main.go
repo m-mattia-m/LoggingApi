@@ -186,8 +186,12 @@ type User struct {
 }
 
 type lastRequest struct {
-	id      string    `json:"id"`
-	title   string    `json:"title"`
-	time    time.Time `json:"time"`
-	success bool      `json:"success"`
+	id          string    `json:"id"`
+	status      string    `json:"status"`
+	url         string    `json:"url"`
+	application string    `json:"application"`
+	title       string    `json:"title"`
+	message     string    `json:"message"`
+	time        time.Time `json:"time"`
+	success     bool      `json:"success"`
 }

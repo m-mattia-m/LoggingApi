@@ -1,0 +1,69 @@
+[{
+        "id": "0627dbb6-5ba4-4bc3-9f37-ac2a485188a9",
+        "username": "johndoe",
+        "email": "john@doe.com",
+        "token": "fd394587-d03a-490e-8f60-359f7a5ba0c7",
+        "lastRequest": [{
+            "id": "1d37e2ba-9f7c-48fa-ac91-4b0568d2ba3f",
+            "status": "200",
+            "url": "https://domain.tld",
+            "application": "Wordpress",
+            "title": "Registration",
+            "message": "johndoe has been registrated.",
+            "time": "2022-04-14T13:43:27.220399+02:00",
+            "success": true
+        }, {
+            "id": "5e2e93f3-4039-4ff7-84cf-9e19276f0e2f",
+            "status": "200",
+            "url": "https://domain.tld",
+            "application": "Wordpress",
+            "title": "Access",
+            "message": "Johndoe has successfully accessed to the site A.",
+            "time": "2022-04-14T13:43:27.220399+02:00",
+            "success": true
+        }, {
+            "id": "7e2f7982-5747-4908-acd7-9a3afa037f3d",
+            "status": "400",
+            "url": "https://domain.tld",
+            "application": "Wordpress",
+            "title": "Access",
+            "message": "Johndoe has unsuccessfully tried to access to the site B.",
+            "time": "2022-04-14T13:43:27.220399+02:00",
+            "success": false
+        }]
+    },
+    {
+        "id": "7782830b-dfaf-4580-83bb-c9d6ace0e485",
+        "username": "maxmustermann",
+        "email": "max@mustermann.com",
+        "token": "b2db2251-e86e-4398-93d5-d08085b20053",
+        "lastRequest": [{
+            "id": "19eb9688-a56e-45ea-99d9-d9ff5671e360",
+            "status": "200",
+            "url": "https://api.domain.tld",
+            "application": "XY-API",
+            "title": "Registration",
+            "message": "Maxmustermann has been registrated.",
+            "time": "2022-04-14T13:43:27.220399+02:00",
+            "success": true
+        }, {
+            "id": "8dc445b1-c415-4ba1-b83d-ab6b143f2b61",
+            "status": "404",
+            "url": "https://api.domain.tld",
+            "application": "XY-API",
+            "title": "Request",
+            "message": "Maxmustermann try unsuccessfully to call '/hello-world'",
+            "time": "2022-04-14T13:43:27.220399+02:00",
+            "success": false
+        }, {
+            "id": "19eb9688-a56e-45ea-99d9-d9ff5671e360",
+            "status": "400",
+            "url": "https://api.domain.tld",
+            "application": "XY-API",
+            "title": "Request",
+            "message": "Maxmustermann try successfully to call '/data",
+            "time": "2022-04-14T13:43:27.220399+02:00",
+            "success": false
+        }]
+    }
+]
