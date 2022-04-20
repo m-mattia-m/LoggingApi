@@ -2,3 +2,4 @@
 /go.sum
 /prod.go
 tempcode.go
+auth.go
