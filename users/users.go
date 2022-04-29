@@ -147,6 +147,22 @@ func EditUser(c *gin.Context) {
 	}
 }
 
+// For Requst
+
+func CreateRequst(c *gin.Context) {
+	currentUsername, _, _ := c.Request.BasicAuth()
+	currentIndex := 0
+	request := requests.NewRequest(c)
+	for i, user := range users {
+		if user.Username == currentUsername {
+			users[i].Request = append(users[i].Request, request)
+			currentIndex = i
+		}
+	}
+	c.JSON(200, users[currentIndex])
+
+}
+
 type User struct {
 	Id        string
 	Firstname string

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bookspreadLogging/requests"
 	"bookspreadLogging/users"
 
 	"github.com/gin-gonic/gin"
@@ -28,7 +27,7 @@ func main() {
 	})
 
 	// Define the request-routes
-	r.POST("/request", users.BasicAuth, requests.NewRequest)
+	r.POST("/request", users.BasicAuth, users.CreateRequst)
 
 	r.Run(":3000")
 }

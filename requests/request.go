@@ -10,7 +10,10 @@ import (
 	"github.com/google/uuid"
 )
 
-func NewRequest(c *gin.Context) {
+func NewRequest(c *gin.Context) Request {
+	user, _, _ := c.Request.BasicAuth()
+	fmt.Println(user)
+
 	status := c.PostForm("status")
 	url := c.PostForm("url")
 	application := c.PostForm("application")
@@ -19,7 +22,7 @@ func NewRequest(c *gin.Context) {
 	success, _ := strconv.ParseBool(c.PostForm("success"))
 	fmt.Println(success)
 	currentRequest := addRequest(status, url, application, title, message, success)
-	c.JSON(200, currentRequest)
+	return currentRequest
 }
 
 func addRequest(status string, url string, application string, title string, message string, success bool) Request {
