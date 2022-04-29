@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 )
@@ -14,7 +16,8 @@ func NewRequest(c *gin.Context) {
 	application := c.PostForm("application")
 	title := c.PostForm("title")
 	message := c.PostForm("message")
-	success := c.GetBool(c.PostForm("success"))
+	success, _ := strconv.ParseBool(c.PostForm("success"))
+	fmt.Println(success)
 	currentRequest := addRequest(status, url, application, title, message, success)
 	c.JSON(200, currentRequest)
 }
@@ -29,10 +32,9 @@ func addRequest(status string, url string, application string, title string, mes
 	funcRequest.Message = message
 	funcRequest.RequestTime = time.Now()
 	funcRequest.Success = success
-	fmt.Println("------------------------------------")
+	fmt.Println("************************************")
 	fmt.Println("New Request successfully created:")
 	fmt.Println("------------------------------------")
-	fmt.Println(funcRequest)
 	fmt.Println("\tId\t\t", funcRequest.Id, "\n\tStatus\t", funcRequest.Status, "\n\tUrl\t", funcRequest.Url, "\n\tApplication\t", funcRequest.Application, "\n\tTitle\t\t", funcRequest.Title, "\n\tMessage\t\t", funcRequest.Message, "\n\tRequestTime\t", funcRequest.RequestTime, "\n\tSuccess\t", funcRequest.Success)
 	fmt.Println("------------------------------------")
 
