@@ -2,17 +2,14 @@ package main
 
 import (
 	"bookspreadLogging/users"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
-
-	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
 )
 
 func main() {
 
-	lambda.Start(handler)
+	// lambda.Start(handler)
+
 	// Define the router
 	r := gin.Default()
 
@@ -38,12 +35,12 @@ func main() {
 	r.Run(":3000")
 }
 
-func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	return &events.APIGatewayProxyResponse{
-		StatusCode:        200,
-		Headers:           map[string]string{"Content-Type": "text/plain"},
-		MultiValueHeaders: http.Header{"Set-Cookie": {"Ding", "Ping"}},
-		Body:              "Hello, World!",
-		IsBase64Encoded:   false,
-	}, nil
-}
+// func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+// 	return &events.APIGatewayProxyResponse{
+// 		StatusCode:        200,
+// 		Headers:           map[string]string{"Content-Type": "text/plain"},
+// 		MultiValueHeaders: http.Header{"Set-Cookie": {"Ding", "Ping"}},
+// 		Body:              "Hello, World!",
+// 		IsBase64Encoded:   false,
+// 	}, nil
+// }
