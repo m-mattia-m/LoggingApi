@@ -7,5 +7,4 @@ tempLogging.go
 bookspreadLogging
 .gitignore
 build.sh
-fly.toml
 run.sh
