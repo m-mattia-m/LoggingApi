@@ -1,4 +1,4 @@
-# fly.toml file generated for gologging on 2022-05-06T11:31:27+02:00
+# fly.toml file generated for gologging on 2022-05-06T11:51:29+02:00
 
 app = "gologging"
 

@@ -4,11 +4,9 @@ WORKDIR /build
 
 COPY . /build
 
-RUN go mod download
+COPY /sites /build
 
 RUN go build -o /build/main
-
-EXPOSE 8080
 
 FROM alpine:latest
 
@@ -16,9 +14,8 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
-COPY --from=builder /build/main /app/
+ENV GIN_MODE=release
 
-EXPOSE 8080
+COPY --from=builder /build/main /app
 
 CMD [ "/app/main" ]
-
