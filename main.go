@@ -8,10 +8,9 @@ import (
 
 func main() {
 
-	// lambda.Start(handler)
-
 	// Define the router
 	r := gin.Default()
+	r.LoadHTMLGlob("sites/*")
 
 	// Define the user-routes
 	r.POST("/registration", users.Registration)
@@ -29,18 +28,12 @@ func main() {
 		c.JSON(400, "Send an ID of a user with. Example: /getUser/id")
 	})
 
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(200, "index.html", nil)
+	})
+
 	// Define the request-routes
 	r.POST("/request", users.BasicAuth, users.CreateRequst)
 
-	r.Run(":3000")
+	r.Run(":8080")
 }
-
-// func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-// 	return &events.APIGatewayProxyResponse{
-// 		StatusCode:        200,
-// 		Headers:           map[string]string{"Content-Type": "text/plain"},
-// 		MultiValueHeaders: http.Header{"Set-Cookie": {"Ding", "Ping"}},
-// 		Body:              "Hello, World!",
-// 		IsBase64Encoded:   false,
-// 	}, nil
-// }
